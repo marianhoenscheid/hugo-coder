@@ -6,17 +6,18 @@
     {{ end }}
     {{ now.Year }}
     {{ with .Site.Params.author }} {{ . }} {{ end }}
-    ·
+    |
     {{ if (and .Site.Params.license) }}
       {{ i18n "licensed_under" }} {{ .Site.Params.license | safeHTML }}
-    ·
+    |
     {{ end }}
-    {{ i18n "powered_by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    {{ i18n "powered_by" }} <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/marianhoenscheid/hugo-coder/" target="_blank" rel="noopener">Coder</a>
     {{ if (and .Site.Params.commit .GitInfo) }}
       [<a href="{{ .Site.Params.commit }}/{{ .GitInfo.Hash }}" target="_blank" rel="noopener">{{ .GitInfo.AbbreviatedHash }}</a>]
     {{ end }}
+    |
     {{ if (and .Site.Params.PrivacyStatement) }}
-      [<a class="privacy-link" href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/privacy-statement">{{ $.Site.Params.PrivacyStatement }} </a>]
-    {{ end }}
+    <a class="privacy-link" href="{{ .Site.BaseURL }}{{ .Site.LanguagePrefix }}/privacy-statement">{{ $.Site.Params.PrivacyStatement }} </a>
+  {{ end }}
   </section>
 </footer>
