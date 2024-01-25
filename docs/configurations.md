@@ -111,11 +111,13 @@ These are all the parameters used by `hugo-coder` theme.
 | description                   | string | Yes      | Description of the site.                         |                                  | `"John Doe's personal website"`                  |
 | keywords                      | string | Yes      | Site keywords.                                   |                                  | `"blog,developer,personal"`                      |
 | avatarURL                     | string | No       | Photo of the author.                             |                                  | `"images/avatar.jpg"`                            |
-| gravatar                      | string | No       | Gravatar photo of the author                     |                                  | `"john.doe@example.com"`                       |
-| faviconSVG                    | string | No       | Custom path to a SCG favicon.                    | `"/img/favicon.svg"`             | `"/img/favicon.svg"`                       |
+| gravatar                      | string | No       | Gravatar photo of the author                     |                                  | `"john.doe@example.com"`                         |
+| faviconSVG                    | string | No       | Custom path to a SCG favicon.                    | `"/img/favicon.svg"`             | `"/img/favicon.svg"`                             |
 | favicon_32                    | string | No       | Custom path to a 32x32 favicon.                  | `"/img/favicon-32x32.png"`       | `"/img/favicon-32x32.png"`                       |
 | favicon_16                    | string | No       | Custom path to a 16x16 favicon.                  | `"/img/favicon-16x16.png"`       | `"/img/favicon-16x16.png"`                       |
-| touchIcon                     | string | No       | Custom path to a touch-icon                      | `"/images/apple-touch-icon.png"` | `"/images/apple-touch-icon.png"`                 |
+| touchIcon                     | string | No       | Custom path to an apple-touch-icon                      | `"/images/apple-touch-icon.png"` | `"/images/apple-touch-icon.png"`                 |
+| mask_icon                     | string | No       | Custom path to a mask-icon                      | `"/images/safari-pinned-tab.svg"` | `"/images/safari-pinned-tab.svg"`                 |
+| mask_icon_color                     | string | No       | Custom color for mask-icon color                      | `"#5bbad5"` | `"#5bbad5"`                 |
 | since                         | string | No       | Date shown in the footer before now year         |                                  | `"2020"`                                         |
 | maxSeeAlsoItems               | number | No       | Series see also post count                       | `5`                              | `10`                                             |
 | commit                        | string | No       | Show the last git commit in the footer           |                                  | `"https://github.com/luizdepra/hugo-coder/tree/"`|
@@ -127,8 +129,9 @@ These are all the parameters used by `hugo-coder` theme.
 | customCSS                     | list   | No       | Add extra CSS files to the website.              | []                               | `["css/extra-style.css"]`                        |
 | customSCSS                    | list   | No       | Add extra SCSS files to the website.             | []                               | `["scss/extra-style.scss"]`                      |
 | customJS                      | list   | No       | Add extra JS files to the website.               | []                               | `["js/extra-script.js"]`                         |
-| customRemoteJS                | list   | No       | Add extra remote JS files to the website.        | []                               | `["https://www.example.com/file.js"]` |
+| customRemoteJS                | list   | No       | Add extra remote JS files to the website.        | []                               | `["https://www.example.com/file.js"]`            |
 | enableTwemoji                 | bool   | No       | Adds support for Twemoji                         | `false`                          | `true` or `false`                                |
+| disableDefaultJsScripts       | bool   | No       | If true, disables default js scripts (coder.js)  | `false`                          | `true` or `false`                                |
 
 ### Social Icons Configuration
 
@@ -201,7 +204,7 @@ CSP stands for [Content Security Policy](https://developers.google.com/web/funda
 | objectsrc      | string list | Yes      |             | `["'self'"]`                    |
 | stylesrc       | string list | Yes      |             | `["'self'"]`                    |
 | scriptsrc      | string list | Yes      |             | `["'self'"]`                    |
-| prefetchsrc    | string list | Yes      |             | `["'self'"]`                    |
+| connectsrc     | string list | Yes      |             | `["'self'"]`                    |
 
 An example:
 
@@ -228,7 +231,8 @@ An example:
     "'unsafe-inline'",
     "https://www.google-analytics.com"
   ]
-  prefetchsrc = ["'self'"]
+  # connect-src directive – defines valid targets for XMLHttpRequest (AJAX), WebSockets or EventSource
+  connectsrc = ["'self'"]
 ```
 
 ## Complete Example
